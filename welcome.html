@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Package Index</title>
+    <style>
+        body {
+            background-color: #111111;
+            color: #e0e0e0;
+            margin: 1rem;
+            font-family: Helvetica;
+        }
+        h1 {
+            text-align: center;
+            padding-bottom: 1.2rem;
+        }
+        .code {
+            color: #9cf781;
+            background-color: #333333;
+            padding: 0.1rem 0.4rem;
+            font-family: Consolas, Hack, 'Ubuntu Mono', monospace;
+        }
+        a, a:visited {
+            color: #81dcf7;
+        }
+        .container {
+            align-content: center;
+            width: 960px;
+            min-width: : 768px;
+            margin: auto;
+            background-color: #1e1e1e;
+            padding: 0.5rem 2rem;
+            line-height: 2.6rem;
+            border-radius: 0.5rem;
+        }
+        .footer {
+            padding: 1rem;
+            font-size: small;
+            text-align: center;
+            color: #666666;
+        }
+        .show {
+            color: #ffa6aa;
+            padding: 0.1rem 0.2rem;
+            background-color: #222222;
+        }
+    </style>
+</head>
+<body>
+    <h1>Python Package Index</h1>
+
+    <div class="container">
+
+        <p>
+          This is a PyPI compatible package index serving <span class="show">{{NUMPKGS}}</span> packages.
+        </p>
+
+        <p>
+          To use this server with <code class="code">pip</code>, run the following command:
+          <pre class="code">
+<code class="code">pip install --index-url {{URL}}simple/ PACKAGE [PACKAGE2...]</code></pre>
+        </p>
+
+        <p>
+          The complete list of all packages can be found <a href="{{PACKAGES}}">here</a> or via the <a href="{{SIMPLE}}">simple</a> index.
+        </p>
+    </div>
+
+    <p class="footer">
+      This instance is running version {{VERSION}} of the <a href="https://pypi.org/project/pypiserver/">pypiserver</a> software.
+    </p>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+version: '3.3'
+
+services:
+  pypi:
+    image: pypiserver/pypiserver:latest
+    restart: always
+    volumes:
+      - ./welcome.html:/usr/local/lib/python3.8/site-packages/pypiserver/welcome.html
+      - packages:/data/packages
+    networks:
+      - skynet
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      # - 443:443
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - cache:/data/nginx/cache
+    depends_on:
+      - pypi
+    networks:
+      - skynet
+
+
+volumes:
+  packages: {}
+  cache: {}
+
+networks:
+  skynet: {}
